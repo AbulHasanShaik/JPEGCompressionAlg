@@ -40,7 +40,7 @@ def rgb_to_cmyk(rgb):
     return c, m, y, k
 
 # Load the image
-image_path = "C:\\Users\\shaik\\OneDrive\\School\\Scientific Comp\\230621042149-01-cristiano-ronaldo-euro-200-apps-062023-restricted.jpg"
+image_path = "C:\\Users\\shaik\\OneDrive\\School\\Scientific Comp\\Color Space Coversion\\230621042149-01-cristiano-ronaldo-euro-200-apps-062023-restricted.jpg"
 image = Image.open(image_path)
 
 # Convert image to RGB mode if not already in RGB
@@ -69,6 +69,13 @@ for y in range(image_rgb.size[1]):
 # Convert the RGB image to CMYK
 image_cmyk = image_rgb.convert("CMYK")
 
-# Display both images
+# Convert the RGB image to YCbCr
+image_ycbcr = image_rgb.convert("YCbCr")
+
+# Save the YCbCr image as JPEG
+output_path = "output_image.jpg"
+image_ycbcr.save(output_path, format='JPEG')
+
+# Show the images
 image.show()
-image_cmyk.show()
+image_ycbcr.show()
